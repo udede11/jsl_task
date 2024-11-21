@@ -1,0 +1,36 @@
+services:
+  redis:
+    image: redis:latest
+    networks:
+      - app-network
+
+  worker:
+    build: .
+    command: celery -A tasks worker --loglevel=info
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./app:/app
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    user: root  # Added this to ensure permissions
+
+  beat:
+    build: .
+    command: celery -A tasks beat --loglevel=info
+    volumes: 
+      - ./app:/app
+    depends_on:
+      - worker
+      - redis
+    networks:
+      - app-network
+
+
+volumes:
+  shared-data:
+
+networks:
+  app-network:
+    driver: bridge
