@@ -5,7 +5,7 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ## Features
 - Celery-based task scheduling
 - Tasks executed in separate Docker containers
-- Docker-in-Docker (DooD) for container isolation and resource management
+- Docker-out-of-Docker (DooD) for container isolation and resource management
 - Automatic container cleanup
 - Configurable task schedule (default: every minute)
 
