@@ -40,7 +40,7 @@ docker-compose up --build
 
 ## How It Works
 - Celery Beat scheduler triggers tasks according to defined schedule
-- Each task creates a new Docker container using DinD
+- Each task creates a new Docker container using DooD
 - Container that runs  `process_file.py` processes files from the `files_to_read` directory
 - Container is automatically cleaned up after execution
 - Results are logged via Celery worker
