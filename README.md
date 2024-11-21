@@ -36,6 +36,7 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ```bash
 docker-compose up --build
 ```
+4. Can also update files_to_read to see the change take effect on air
 
 ## How It Works
 - Celery Beat scheduler triggers tasks according to defined schedule
