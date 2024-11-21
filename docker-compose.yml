@@ -4,7 +4,7 @@ services:
     networks:
       - app-network
 
-  worker:
+  celery:
     build: .
     command: celery -A tasks worker --loglevel=info
     volumes: 
@@ -14,7 +14,6 @@ services:
       - redis
     networks:
       - app-network
-    user: root  # Added this to ensure permissions
 
   beat:
     build: .
@@ -22,14 +21,10 @@ services:
     volumes: 
       - ./app:/app
     depends_on:
-      - worker
+      - celery
       - redis
     networks:
       - app-network
-
-
-volumes:
-  shared-data:
 
 networks:
   app-network:
