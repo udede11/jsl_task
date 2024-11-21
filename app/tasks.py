@@ -2,9 +2,8 @@ import os
 from typing import Any, Dict
 
 import docker
-from docker.errors import ContainerError, DockerException, ImageNotFound
-
 from celery_app import app
+from docker.errors import ContainerError, DockerException, ImageNotFound
 
 
 @app.task
