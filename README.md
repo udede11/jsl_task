@@ -5,7 +5,7 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ## Features
 - Celery-based task scheduling
 - Tasks executed in separate Docker containers
-- Docker-in-Docker (DooD) for container isolation and resource management
+- Docker-out-of-Docker (DooD) for container isolation and resource management
 - Automatic container cleanup
 - Configurable task schedule (default: every minute)
 
@@ -36,10 +36,11 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ```bash
 docker-compose up --build
 ```
+4. Can also update files_to_read to see the change take effect on air
 
 ## How It Works
 - Celery Beat scheduler triggers tasks according to defined schedule
-- Each task creates a new Docker container using DinD
+- Each task creates a new Docker container using DooD
 - Container that runs  `process_file.py` processes files from the `files_to_read` directory
 - Container is automatically cleaned up after execution
 - Results are logged via Celery worker
