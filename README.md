@@ -36,11 +36,12 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ```bash
 docker buildx build -t read_file .
 ```
-4. Run:
+4. Update the SOURCE_PATH environment variable in docker_compose.yml for Celery to point at files_to_read
+5. Run:
 ```bash
 docker-compose up --build
 ```
-5. Can also update files_to_read to see the change take effect on air
+6. Can also update files_to_read to see the change take effect on air
 
 ## How It Works
 - Celery Beat scheduler triggers tasks according to defined schedule

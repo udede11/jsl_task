@@ -36,7 +36,7 @@ def read_file() -> Dict[str, Any]:
             detach=True,
             remove=False,
             volumes={
-                "/Users/alexdavies/desktop/jsl/files_to_read": {
+                os.environ.get("SOURCE_PATH", ""): {
                     "bind": "/files_to_read",
                     "mode": "ro",
                 }
