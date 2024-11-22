@@ -32,7 +32,7 @@ A simple Celery application that demonstrates scheduled tasks running in Docker 
 ## Quick Start
 1. Clone the repository
 2. Place files to be processed in `files_to_read` directory
-3. Build read_file with 
+3. Build read_file inside worker_container with 
 ```bash
 docker buildx build -t read_file .
 ```
